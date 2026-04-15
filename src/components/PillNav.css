@@ -20,7 +20,6 @@
 .header-glass-wrapper.glass-surface--svg {
   box-shadow: none !important;
   border: none !important;
-  background: transparent !important;
 }
 
 .header-glass-wrapper .glass-surface__content {
@@ -36,10 +35,10 @@
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  background: rgba(10, 10, 15, 0.4) !important;
-  backdrop-filter: blur(16px) saturate(1.2) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(1.2) !important;
-  border: 1px solid var(--glass-border);
+  background: rgba(10, 10, 15, 0.75) !important;
+  backdrop-filter: blur(24px) saturate(1.8) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(1.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   padding: 8px;
   border-radius: 999px;
   gap: 10px;

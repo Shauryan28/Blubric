@@ -240,9 +240,9 @@ const PillNav: React.FC<PillNavProps> = ({
     <div className="pill-nav-wrap-container">
       <GlassSurface 
         className="header-glass-wrapper" 
-        backgroundOpacity={0} 
+        backgroundOpacity={0.1} 
         borderWidth={0} 
-        blur={2}
+        blur={20}
         style={{ width: 'auto', height: 'auto' }}
       >
         <nav className={`pill-nav ${className}`} aria-label="Primary" style={cssVars}>
