@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import GlassSurface from '../components/GlassSurface';
-import Stepper, { Step } from '../components/Stepper';
+
 import { Target, Activity, Zap, ShieldCheck, Search, Map, FileText, Settings, Users } from 'lucide-react';
 import './pages.css';
 
@@ -83,21 +83,30 @@ export default function Home() {
           <span className="section-subtitle">The Blubric Journey</span>
           <h2 className="section-title">How We Engage</h2>
         </div>
-        <GlassSurface backgroundOpacity={0.1} style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
-          <Stepper>
-            {journeySteps.map((step, idx) => (
-              <Step key={idx}>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '1rem 0 3rem' }}>
-                  <div style={{ color: 'var(--accent-color)', marginBottom: '2rem', opacity: 0.9, filter: 'drop-shadow(0 0 10px rgba(0,229,255,0.3))' }}>
+        <div className="timeline-container">
+          <div className="timeline-line"></div>
+          {journeySteps.map((step, idx) => (
+            <motion.div 
+              className="timeline-item" 
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <div className="timeline-node"></div>
+              <div className="timeline-content">
+                <div className="timeline-card">
+                  <div className="timeline-icon-wrap">
                     {step.icon}
                   </div>
-                  <h3 className="glass-card-title" style={{ fontSize: '2rem', marginBottom: '1.2rem', color: '#fff', fontWeight: 700 }}>{step.title}</h3>
-                  <p className="glass-card-text" style={{ fontSize: '1.2rem', maxWidth: '600px', lineHeight: 1.8, color: '#c9d2db' }}>{step.description}</p>
+                  <h3 className="glass-card-title" style={{ fontSize: '1.4rem', marginBottom: '0.8rem', color: '#fff', fontWeight: 700 }}>{step.title}</h3>
+                  <p className="glass-card-text" style={{ fontSize: '1rem', lineHeight: 1.6, color: '#c9d2db' }}>{step.description}</p>
                 </div>
-              </Step>
-            ))}
-          </Stepper>
-        </GlassSurface>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </section>
 
       <section className="section-container">
