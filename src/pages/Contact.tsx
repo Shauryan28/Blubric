@@ -1,30 +1,8 @@
 import { motion } from 'framer-motion';
 import GlassSurface from '../components/GlassSurface';
-import { useEffect } from 'react';
 import { Mail, MapPin, Phone } from 'lucide-react';
+import { InlineWidget } from 'react-calendly';
 import './pages.css';
-
-const CalendlyEmbed = () => {
-  useEffect(() => {
-    // Only append script if it doesn't already exist to avoid duplicates
-    if (!document.getElementById('calendly-script')) {
-      const head = document.querySelector('head');
-      const script = document.createElement('script');
-      script.id = 'calendly-script';
-      script.setAttribute('src', 'https://assets.calendly.com/assets/external/widget.js');
-      script.setAttribute('async', 'true');
-      head?.appendChild(script);
-    }
-  }, []);
-
-  return (
-    <div 
-      className="calendly-inline-widget" 
-      data-url="https://calendly.com/i9409285178/30min" 
-      style={{ minWidth: '320px', height: '700px', width: '100%' }} 
-    />
-  );
-};
 
 export default function Contact() {
   return (
@@ -85,7 +63,7 @@ export default function Contact() {
         </GlassSurface>
 
         <GlassSurface backgroundOpacity={0.1} style={{ padding: '1rem', overflow: 'hidden' }}>
-          <CalendlyEmbed />
+          <InlineWidget url="https://calendly.com/i9409285178/30min" styles={{ height: '700px' }} />
         </GlassSurface>
       </div>
     </motion.div>

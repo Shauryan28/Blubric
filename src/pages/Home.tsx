@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import GlassSurface from '../components/GlassSurface';
 import AnimatedCounter from '../components/AnimatedCounter';
 import BorderGlow from '../components/BorderGlow';
+import LogoTicker from '../components/LogoTicker';
 import { Target, Activity, Zap, ShieldCheck, Search, Map, FileText, Settings, Users, TrendingUp, DollarSign, Award } from 'lucide-react';
 import './pages.css';
 
@@ -132,6 +133,8 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      <LogoTicker />
 
       <section className="section-container">
         <div className="section-header">
