@@ -1,7 +1,13 @@
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
-import { ArrowRight, Mail, MapPin, Phone } from 'lucide-react';
+import { useEffect, useState, useRef } from 'react';
+import { ArrowRight, Mail, MapPin, Phone, AlertCircle, CheckCircle } from 'lucide-react';
 import './pages.css';
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// Web3Forms Access Key — Get yours at https://web3forms.com
+// Enter your email → receive access key → paste below
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+const WEB3FORMS_ACCESS_KEY = 'YOUR_ACCESS_KEY_HERE';
 
 const CalendlyEmbed = () => {
   useEffect(() => {
@@ -25,15 +31,45 @@ const CalendlyEmbed = () => {
 };
 
 export default function Contact() {
-  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMsg, setErrorMsg] = useState('');
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus('submitting');
-    setTimeout(() => {
-      setFormStatus('success');
-      setTimeout(() => setFormStatus('idle'), 3000);
-    }, 1500);
+    setErrorMsg('');
+
+    const form = formRef.current;
+    if (!form) return;
+
+    const formData = new FormData(form);
+    formData.append('access_key', WEB3FORMS_ACCESS_KEY);
+    formData.append('subject', 'New Quotation Request — BLUBRIC');
+    formData.append('from_name', 'BLUBRIC Website');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setFormStatus('success');
+        form.reset();
+        setTimeout(() => setFormStatus('idle'), 4000);
+      } else {
+        setFormStatus('error');
+        setErrorMsg(data.message || 'Something went wrong. Please try again.');
+        setTimeout(() => setFormStatus('idle'), 4000);
+      }
+    } catch {
+      setFormStatus('error');
+      setErrorMsg('Network error. Please check your connection and try again.');
+      setTimeout(() => setFormStatus('idle'), 4000);
+    }
   };
 
   return (
@@ -76,19 +112,39 @@ export default function Contact() {
             <h2 className="contact-heading">Request a Quotation</h2>
             <p className="contact-subheading">Tell us about your current bottlenecks and where you want to be. We'll get back to you within 24 hours with actionable next steps.</p>
             
-            <form onSubmit={handleSubmit} className="premium-form">
+            <form ref={formRef} onSubmit={handleSubmit} className="premium-form">
+              {/* Hidden field for Web3Forms recipient */}
+              <input type="hidden" name="to_email" value="i9409285178@gmail.com" />
+              
               <div className="input-group">
-                <input type="text" id="name" required placeholder=" " />
+                <input type="text" id="name" name="name" required placeholder=" " />
                 <label htmlFor="name">Full Name</label>
               </div>
               <div className="input-group">
-                <input type="email" id="email" required placeholder=" " />
+                <input type="email" id="email" name="email" required placeholder=" " />
                 <label htmlFor="email">Work Email</label>
               </div>
               <div className="input-group">
-                <textarea id="message" required placeholder=" " rows={4}></textarea>
+                <textarea id="message" name="message" required placeholder=" " rows={4}></textarea>
                 <label htmlFor="message">How can we help you scale?</label>
               </div>
+
+              {/* Success Message */}
+              {formStatus === 'success' && (
+                <div className="form-feedback success">
+                  <CheckCircle size={18} />
+                  <span>Message sent successfully! We'll be in touch within 24 hours.</span>
+                </div>
+              )}
+
+              {/* Error Message */}
+              {formStatus === 'error' && (
+                <div className="form-feedback error">
+                  <AlertCircle size={18} />
+                  <span>{errorMsg}</span>
+                </div>
+              )}
+
               <button 
                 type="submit" 
                 className={`submit-btn ${formStatus}`}
@@ -97,7 +153,8 @@ export default function Contact() {
                 <span className="btn-text">
                   {formStatus === 'idle' && 'Send Message'}
                   {formStatus === 'submitting' && 'Sending...'}
-                  {formStatus === 'success' && 'Message Sent'}
+                  {formStatus === 'success' && 'Message Sent ✓'}
+                  {formStatus === 'error' && 'Try Again'}
                 </span>
                 {formStatus === 'idle' && <ArrowRight size={18} />}
               </button>
