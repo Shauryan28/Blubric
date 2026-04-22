@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import GlassSurface from '../components/GlassSurface';
 import AnimatedCounter from '../components/AnimatedCounter';
 import BorderGlow from '../components/BorderGlow';
+import TrueFocus from '../components/TrueFocus';
 import { Target, Activity, Zap, ShieldCheck, Search, Map, FileText, Settings, Users, TrendingUp, IndianRupee, Award } from 'lucide-react';
 import './pages.css';
 
@@ -28,7 +29,15 @@ export default function Home() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.8 }}
         >
-          Clarity. Strategy. Execution.
+          <TrueFocus 
+            sentence="Clarity. Strategy. Execution."
+            manualMode={false}
+            blurAmount={4}
+            borderColor="rgba(37, 99, 235, 0.8)"
+            glowColor="rgba(37, 99, 235, 0.4)"
+            animationDuration={0.8}
+            pauseBetweenAnimations={0.5}
+          />
         </motion.h1>
         <motion.p 
           className="hero-subtitle"
