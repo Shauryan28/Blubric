@@ -1,12 +1,10 @@
 import { motion } from 'framer-motion';
-import GlassSurface from '../components/GlassSurface';
 import { useEffect, useState } from 'react';
-import { Mail, MapPin, Phone, Send } from 'lucide-react';
+import { ArrowRight, Mail, MapPin, Phone } from 'lucide-react';
 import './pages.css';
 
 const CalendlyEmbed = () => {
   useEffect(() => {
-    // Only append script if it doesn't already exist to avoid duplicates
     if (!document.getElementById('calendly-script')) {
       const head = document.querySelector('head');
       const script = document.createElement('script');
@@ -21,7 +19,7 @@ const CalendlyEmbed = () => {
     <div 
       className="calendly-inline-widget" 
       data-url="https://calendly.com/i9409285178/30min?hide_gdpr_banner=1" 
-      style={{ minWidth: '320px', height: '700px', width: '100%' }} 
+      style={{ minWidth: '320px', height: '650px', width: '100%' }} 
     />
   );
 };
@@ -32,110 +30,113 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus('submitting');
-    // Simulate API call
     setTimeout(() => {
       setFormStatus('success');
-      // Reset after 3 seconds
       setTimeout(() => setFormStatus('idle'), 3000);
     }, 1500);
   };
 
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      style={{ paddingTop: '4rem', paddingBottom: '4rem' }}
+      transition={{ duration: 0.6 }}
+      className="contact-page-wrapper"
     >
-      <div className="section-header">
-        <span className="section-subtitle">Get In Touch</span>
-        <h1 className="hero-title" style={{ fontSize: '3rem', margin: '0 auto' }}>Start Your Journey</h1>
+      <div className="contact-hero">
+        <motion.span 
+          className="section-subtitle"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+        >
+          Partner With Us
+        </motion.span>
+        <motion.h1 
+          className="contact-title"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          Let's engineer your next phase of growth.
+        </motion.h1>
       </div>
 
-      <div className="grid-2" style={{ marginTop: '4rem', alignItems: 'stretch' }}>
+      <div className="contact-grid">
         
-        {/* Left Column: Contact Info & Form */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-          
-          <GlassSurface backgroundOpacity={0.02} style={{ padding: '2.5rem' }}>
-            <h2 className="glass-card-title" style={{ marginBottom: '2rem', fontSize: '1.5rem' }}>Direct Contact</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <div className="glass-card-icon" style={{ width: '40px', height: '40px', borderRadius: '50%', flexShrink: 0, marginBottom: 0 }}>
-                  <Mail size={20} />
-                </div>
-                <div>
-                  <p style={{ fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.1rem', fontSize: '0.9rem' }}>Email Us</p>
-                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>contact@yourcompany.com</p>
-                </div>
-              </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <div className="glass-card-icon" style={{ width: '40px', height: '40px', borderRadius: '50%', flexShrink: 0, marginBottom: 0 }}>
-                  <Phone size={20} />
-                </div>
-                <div>
-                  <p style={{ fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.1rem', fontSize: '0.9rem' }}>Call Us</p>
-                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>+91 98765 43210</p>
-                </div>
-              </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <div className="glass-card-icon" style={{ width: '40px', height: '40px', borderRadius: '50%', flexShrink: 0, marginBottom: 0 }}>
-                  <MapPin size={20} />
-                </div>
-                <div>
-                  <p style={{ fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.1rem', fontSize: '0.9rem' }}>Location</p>
-                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>Mumbai, India</p>
-                </div>
-              </div>
-            </div>
-          </GlassSurface>
-
-          <GlassSurface backgroundOpacity={0.02} style={{ padding: '2.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
-            <h2 className="glass-card-title" style={{ marginBottom: '0.5rem', fontSize: '1.5rem' }}>Request a Quotation</h2>
-            <p className="glass-card-text" style={{ marginBottom: '2rem', fontSize: '0.9rem' }}>Have a specific query? Drop us a message and our team will get back to you within 24 hours.</p>
+        {/* Left Column: Form & Minimal Info */}
+        <motion.div 
+          className="contact-left"
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+        >
+          <div className="contact-form-container">
+            <h2 className="contact-heading">Request a Quotation</h2>
+            <p className="contact-subheading">Tell us about your current bottlenecks and where you want to be. We'll get back to you within 24 hours with actionable next steps.</p>
             
-            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem', flex: 1 }}>
-              <div className="form-group" style={{ marginBottom: 0 }}>
-                <input type="text" className="form-input" placeholder="Your Name" required />
+            <form onSubmit={handleSubmit} className="premium-form">
+              <div className="input-group">
+                <input type="text" id="name" required placeholder=" " />
+                <label htmlFor="name">Full Name</label>
               </div>
-              <div className="form-group" style={{ marginBottom: 0 }}>
-                <input type="email" className="form-input" placeholder="Work Email" required />
+              <div className="input-group">
+                <input type="email" id="email" required placeholder=" " />
+                <label htmlFor="email">Work Email</label>
               </div>
-              <div className="form-group" style={{ marginBottom: 0, flex: 1 }}>
-                <textarea className="form-input" placeholder="How can we help you grow?" style={{ height: '100%', minHeight: '120px', resize: 'none' }} required></textarea>
+              <div className="input-group">
+                <textarea id="message" required placeholder=" " rows={4}></textarea>
+                <label htmlFor="message">How can we help you scale?</label>
               </div>
               <button 
                 type="submit" 
-                className="cta-button primary-cta" 
+                className={`submit-btn ${formStatus}`}
                 disabled={formStatus !== 'idle'}
-                style={{ 
-                  width: '100%', 
-                  marginTop: '1rem', 
-                  display: 'flex', 
-                  justifyContent: 'center', 
-                  alignItems: 'center', 
-                  gap: '0.5rem',
-                  opacity: formStatus === 'submitting' ? 0.7 : 1,
-                  backgroundColor: formStatus === 'success' ? '#16a34a' : undefined,
-                  borderColor: formStatus === 'success' ? '#16a34a' : undefined
-                }}
               >
-                {formStatus === 'idle' && <><Send size={18} /> Send Message</>}
-                {formStatus === 'submitting' && 'Sending...'}
-                {formStatus === 'success' && 'Message Sent! ✓'}
+                <span className="btn-text">
+                  {formStatus === 'idle' && 'Send Message'}
+                  {formStatus === 'submitting' && 'Sending...'}
+                  {formStatus === 'success' && 'Message Sent'}
+                </span>
+                {formStatus === 'idle' && <ArrowRight size={18} />}
               </button>
             </form>
-          </GlassSurface>
+          </div>
 
-        </div>
+          <div className="contact-info-footer">
+            <div className="info-item">
+              <Mail size={16} className="info-icon" />
+              <span>contact@blubric.com</span>
+            </div>
+            <div className="info-item">
+              <Phone size={16} className="info-icon" />
+              <span>+91 98765 43210</span>
+            </div>
+            <div className="info-item">
+              <MapPin size={16} className="info-icon" />
+              <span>Mumbai, India</span>
+            </div>
+          </div>
+        </motion.div>
 
-        {/* Right Column: Calendly Widget */}
-        <GlassSurface backgroundOpacity={0.1} style={{ padding: '1rem', overflow: 'hidden' }}>
-          <CalendlyEmbed />
-        </GlassSurface>
+        {/* Right Column: Calendly */}
+        <motion.div 
+          className="contact-right"
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+        >
+          <div className="calendly-wrapper">
+            <div className="calendly-header">
+              <h2 className="contact-heading" style={{ marginBottom: '0.5rem' }}>Book a Discovery Call</h2>
+              <p className="contact-subheading" style={{ marginBottom: 0 }}>Skip the form. Select a time to speak directly with our founder.</p>
+            </div>
+            <div className="calendly-frame">
+              <CalendlyEmbed />
+            </div>
+          </div>
+        </motion.div>
 
       </div>
     </motion.div>
