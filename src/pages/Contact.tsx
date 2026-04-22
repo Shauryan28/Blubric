@@ -1,7 +1,30 @@
 import { motion } from 'framer-motion';
 import GlassSurface from '../components/GlassSurface';
-import { Calendar } from 'lucide-react';
+import { useEffect } from 'react';
+import { Mail, MapPin, Phone } from 'lucide-react';
 import './pages.css';
+
+const CalendlyEmbed = () => {
+  useEffect(() => {
+    // Only append script if it doesn't already exist to avoid duplicates
+    if (!document.getElementById('calendly-script')) {
+      const head = document.querySelector('head');
+      const script = document.createElement('script');
+      script.id = 'calendly-script';
+      script.setAttribute('src', 'https://assets.calendly.com/assets/external/widget.js');
+      script.setAttribute('async', 'true');
+      head?.appendChild(script);
+    }
+  }, []);
+
+  return (
+    <div 
+      className="calendly-inline-widget" 
+      data-url="https://calendly.com/i9409285178/30min" 
+      style={{ minWidth: '320px', height: '700px', width: '100%' }} 
+    />
+  );
+};
 
 export default function Contact() {
   return (
@@ -18,42 +41,51 @@ export default function Contact() {
       </div>
 
       <div className="grid-2" style={{ marginTop: '4rem', alignItems: 'stretch' }}>
-        <GlassSurface backgroundOpacity={0.1} style={{ padding: '3rem' }}>
-          <h2 className="glass-card-title" style={{ marginBottom: '2rem', fontSize: '1.8rem' }}>Drop us a message</h2>
-          <form onSubmit={(e) => e.preventDefault()}>
-            <div className="form-group">
-              <label className="form-label">Name</label>
-              <input type="text" className="form-input" placeholder="Your Name" />
+        <GlassSurface backgroundOpacity={0.02} style={{ padding: '3rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <h2 className="glass-card-title" style={{ marginBottom: '2rem', fontSize: '1.8rem' }}>Direct Contact</h2>
+          
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <div className="glass-card-icon" style={{ width: '48px', height: '48px', borderRadius: '50%', flexShrink: 0, marginBottom: 0 }}>
+                <Mail size={24} />
+              </div>
+              <div>
+                <p style={{ fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.2rem' }}>Email Us</p>
+                <p style={{ color: 'var(--text-secondary)' }}>hello@blubric.com</p>
+              </div>
             </div>
-            <div className="form-group">
-              <label className="form-label">Email</label>
-              <input type="email" className="form-input" placeholder="you@company.com" />
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <div className="glass-card-icon" style={{ width: '48px', height: '48px', borderRadius: '50%', flexShrink: 0, marginBottom: 0 }}>
+                <Phone size={24} />
+              </div>
+              <div>
+                <p style={{ fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.2rem' }}>Call Us</p>
+                <p style={{ color: 'var(--text-secondary)' }}>+91 94092 85178</p>
+              </div>
             </div>
-            <div className="form-group">
-              <label className="form-label">Company / Business Name</label>
-              <input type="text" className="form-input" placeholder="Company Name" />
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <div className="glass-card-icon" style={{ width: '48px', height: '48px', borderRadius: '50%', flexShrink: 0, marginBottom: 0 }}>
+                <MapPin size={24} />
+              </div>
+              <div>
+                <p style={{ fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.2rem' }}>Location</p>
+                <p style={{ color: 'var(--text-secondary)' }}>India</p>
+              </div>
             </div>
-            <div className="form-group">
-              <label className="form-label">Message</label>
-              <textarea className="form-input" placeholder="How can we help you grow?"></textarea>
-            </div>
-            <button className="cta-button primary-cta" style={{ width: '100%', marginTop: '1rem' }}>
-              Send Message
-            </button>
-          </form>
+          </div>
+          
+          <div style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid rgba(0,0,0,0.05)' }}>
+            <h3 className="glass-card-title" style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>Book a Consultation</h3>
+            <p className="glass-card-text">
+              Select a time that works best for you on the calendar to schedule a 30-minute discovery call with our founder.
+            </p>
+          </div>
         </GlassSurface>
 
-        <GlassSurface backgroundOpacity={0.02} style={{ padding: '3rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-          <div className="glass-card-icon" style={{ width: '64px', height: '64px', borderRadius: '50%', marginBottom: '2rem' }}>
-            <Calendar size={32} />
-          </div>
-          <h2 className="glass-card-title" style={{ marginBottom: '1rem', fontSize: '1.8rem' }}>Book a Consultation</h2>
-          <p className="glass-card-text" style={{ marginBottom: '2rem' }}>
-            Skip the form and go straight to scheduling. Book a 30-minute discovery call with our founder.
-          </p>
-          <button className="secondary-cta" style={{ width: '100%' }}>
-            Open Calendly
-          </button>
+        <GlassSurface backgroundOpacity={0.1} style={{ padding: '1rem', overflow: 'hidden' }}>
+          <CalendlyEmbed />
         </GlassSurface>
       </div>
     </motion.div>
