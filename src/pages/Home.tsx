@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import GlassSurface from '../components/GlassSurface';
 import AnimatedCounter from '../components/AnimatedCounter';
 import BorderGlow from '../components/BorderGlow';
+import LogoTicker from '../components/LogoTicker';
 import { Target, Activity, Zap, ShieldCheck, Search, Map, FileText, Settings, Users, TrendingUp, DollarSign, Award } from 'lucide-react';
 import './pages.css';
 
@@ -49,6 +50,8 @@ export default function Home() {
         </motion.div>
       </section>
 
+      <LogoTicker />
+
       <section className="impact-section">
         <div className="impact-header">
           <motion.span
@@ -79,8 +82,8 @@ export default function Home() {
             style={{ flex: 1, minWidth: '260px', display: 'flex' }}
           >
             <BorderGlow glowColor="#2563eb">
-              <div className="impact-icon-wrap" style={{ background: 'linear-gradient(135deg, rgba(37,99,235,0.1) 0%, rgba(37,99,235,0.02) 100%)', borderColor: 'rgba(37,99,235,0.2)' }}>
-                <Users size={32} strokeWidth={1.5} color="#2563eb" />
+              <div className="impact-icon-wrap" style={{ '--icon-glow-color': '#2563eb' } as React.CSSProperties}>
+                <Users size={32} strokeWidth={2} color="#2563eb" />
               </div>
               <h3 className="impact-number"><AnimatedCounter to={250} suffix="+" /></h3>
               <p className="impact-label">Companies Scaled</p>
@@ -96,8 +99,8 @@ export default function Home() {
             style={{ flex: 1, minWidth: '260px', display: 'flex' }}
           >
             <BorderGlow glowColor="#16a34a">
-              <div className="impact-icon-wrap" style={{ background: 'linear-gradient(135deg, rgba(22,163,74,0.1) 0%, rgba(22,163,74,0.02) 100%)', borderColor: 'rgba(22,163,74,0.2)' }}>
-                <TrendingUp size={32} strokeWidth={1.5} color="#16a34a" />
+              <div className="impact-icon-wrap" style={{ '--icon-glow-color': '#16a34a' } as React.CSSProperties}>
+                <TrendingUp size={32} strokeWidth={2} color="#16a34a" />
               </div>
               <h3 className="impact-number" style={{ color: '#16a34a' }}><AnimatedCounter to={35} suffix="%" /></h3>
               <p className="impact-label">Average Profit Growth</p>
@@ -113,8 +116,8 @@ export default function Home() {
             style={{ flex: 1, minWidth: '260px', display: 'flex' }}
           >
             <BorderGlow glowColor="#9333ea">
-              <div className="impact-icon-wrap" style={{ background: 'linear-gradient(135deg, rgba(147,51,234,0.1) 0%, rgba(147,51,234,0.02) 100%)', borderColor: 'rgba(147,51,234,0.2)' }}>
-                <DollarSign size={32} strokeWidth={1.5} color="#9333ea" />
+              <div className="impact-icon-wrap" style={{ '--icon-glow-color': '#9333ea' } as React.CSSProperties}>
+                <DollarSign size={32} strokeWidth={2} color="#9333ea" />
               </div>
               <h3 className="impact-number" style={{ color: '#9333ea' }}>₹<AnimatedCounter to={50} suffix="Cr+" /></h3>
               <p className="impact-label">Revenue Generated</p>
@@ -130,8 +133,8 @@ export default function Home() {
             style={{ flex: 1, minWidth: '260px', display: 'flex' }}
           >
             <BorderGlow glowColor="#ea580c">
-              <div className="impact-icon-wrap" style={{ background: 'linear-gradient(135deg, rgba(234,88,12,0.1) 0%, rgba(234,88,12,0.02) 100%)', borderColor: 'rgba(234,88,12,0.2)' }}>
-                <Award size={32} strokeWidth={1.5} color="#ea580c" />
+              <div className="impact-icon-wrap" style={{ '--icon-glow-color': '#ea580c' } as React.CSSProperties}>
+                <Award size={32} strokeWidth={2} color="#ea580c" />
               </div>
               <h3 className="impact-number" style={{ color: '#ea580c' }}><AnimatedCounter to={98} suffix="%" /></h3>
               <p className="impact-label">Client Retention Rate</p>

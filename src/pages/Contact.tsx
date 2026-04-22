@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
 import GlassSurface from '../components/GlassSurface';
-import { useEffect, useState } from 'react';
-import { Mail, Phone, Send, CheckCircle2 } from 'lucide-react';
+import { useEffect } from 'react';
+import { Mail, MapPin, Phone } from 'lucide-react';
 import './pages.css';
 
 const CalendlyEmbed = () => {
   useEffect(() => {
+    // Only append script if it doesn't already exist to avoid duplicates
     if (!document.getElementById('calendly-script')) {
       const head = document.querySelector('head');
       const script = document.createElement('script');
@@ -25,64 +26,6 @@ const CalendlyEmbed = () => {
   );
 };
 
-const QueryForm = () => {
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus('submitting');
-    // Simulate network request
-    setTimeout(() => {
-      setStatus('success');
-      // Reset after 3 seconds
-      setTimeout(() => setStatus('idle'), 3000);
-    }, 1500);
-  };
-
-  if (status === 'success') {
-    return (
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '4rem 0', textAlign: 'center' }}
-      >
-        <CheckCircle2 size={64} color="#16a34a" style={{ marginBottom: '1rem' }} />
-        <h3 className="glass-card-title" style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>Query Sent!</h3>
-        <p className="glass-card-text">We've received your details and will reach out with a quotation shortly.</p>
-      </motion.div>
-    );
-  }
-
-  return (
-    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem', marginTop: '1rem' }}>
-      <div className="form-group" style={{ marginBottom: 0 }}>
-        <input required type="text" className="form-input" placeholder="Full Name" style={{ background: 'rgba(255,255,255,0.8)' }} />
-      </div>
-      <div className="form-group" style={{ marginBottom: 0 }}>
-        <input required type="email" className="form-input" placeholder="Work Email" style={{ background: 'rgba(255,255,255,0.8)' }} />
-      </div>
-      <div className="form-group" style={{ marginBottom: 0 }}>
-        <input required type="text" className="form-input" placeholder="Company Name" style={{ background: 'rgba(255,255,255,0.8)' }} />
-      </div>
-      <div className="form-group" style={{ marginBottom: 0 }}>
-        <textarea required className="form-input" placeholder="Tell us about your growth challenges or request a quotation..." style={{ background: 'rgba(255,255,255,0.8)', minHeight: '100px' }}></textarea>
-      </div>
-      <button 
-        type="submit" 
-        className="cta-button primary-cta" 
-        disabled={status === 'submitting'}
-        style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.5rem' }}
-      >
-        {status === 'submitting' ? 'Sending...' : (
-          <>
-            Request Quotation <Send size={18} />
-          </>
-        )}
-      </button>
-    </form>
-  );
-};
-
 export default function Contact() {
   return (
     <motion.div 
@@ -99,35 +42,111 @@ export default function Contact() {
 
       <div className="grid-2" style={{ marginTop: '4rem', alignItems: 'stretch' }}>
         <GlassSurface backgroundOpacity={0.02} style={{ padding: '3rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <h2 className="glass-card-title" style={{ marginBottom: '2rem', fontSize: '1.8rem' }}>Direct Contact</h2>
           
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '3rem' }}>
-            <h2 className="glass-card-title" style={{ fontSize: '1.8rem', marginBottom: '0.5rem' }}>Direct Contact</h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <div className="glass-card-icon" style={{ width: '40px', height: '40px', borderRadius: '50%', flexShrink: 0, marginBottom: 0 }}>
-                <Mail size={20} />
+              <div className="glass-card-icon" style={{ width: '48px', height: '48px', borderRadius: '50%', flexShrink: 0, marginBottom: 0 }}>
+                <Mail size={24} />
               </div>
-              <p style={{ color: 'var(--text-secondary)' }}>hello@blubric.com</p>
+              <div>
+                <p style={{ fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.2rem' }}>Email Us</p>
+                <p style={{ color: 'var(--text-secondary)' }}>hello@blubric.com</p>
+              </div>
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <div className="glass-card-icon" style={{ width: '40px', height: '40px', borderRadius: '50%', flexShrink: 0, marginBottom: 0 }}>
-                <Phone size={20} />
+              <div className="glass-card-icon" style={{ width: '48px', height: '48px', borderRadius: '50%', flexShrink: 0, marginBottom: 0 }}>
+                <Phone size={24} />
               </div>
-              <p style={{ color: 'var(--text-secondary)' }}>+91 00000 00000</p>
+              <div>
+                <p style={{ fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.2rem' }}>Call Us</p>
+                <p style={{ color: 'var(--text-secondary)' }}>+91 98765 43210</p>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <div className="glass-card-icon" style={{ width: '48px', height: '48px', borderRadius: '50%', flexShrink: 0, marginBottom: 0 }}>
+                <MapPin size={24} />
+              </div>
+              <div>
+                <p style={{ fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.2rem' }}>Location</p>
+                <p style={{ color: 'var(--text-secondary)' }}>India</p>
+              </div>
             </div>
           </div>
           
-          <div style={{ paddingTop: '2rem', borderTop: '1px solid rgba(0,0,0,0.05)' }}>
-            <h2 className="glass-card-title" style={{ fontSize: '1.8rem', marginBottom: '0.5rem' }}>Send a Query</h2>
-            <p className="glass-card-text" style={{ marginBottom: '1rem' }}>
-              Looking for a custom quotation or have specific growth questions? Drop us a message.
+          <div style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid rgba(0,0,0,0.05)' }}>
+            <h3 className="glass-card-title" style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>Book a Consultation</h3>
+            <p className="glass-card-text">
+              Select a time that works best for you on the calendar to schedule a 30-minute discovery call with our founder.
             </p>
-            <QueryForm />
           </div>
         </GlassSurface>
 
         <GlassSurface backgroundOpacity={0.1} style={{ padding: '1rem', overflow: 'hidden' }}>
           <CalendlyEmbed />
+        </GlassSurface>
+      </div>
+
+      {/* Working Query Form Section */}
+      <div style={{ marginTop: '4rem' }}>
+        <GlassSurface backgroundOpacity={0.03} style={{ padding: '4rem 3rem' }}>
+          <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', marginBottom: '3rem' }}>
+            <h2 className="section-title" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Request a Quotation</h2>
+            <p className="glass-card-text" style={{ fontSize: '1.1rem' }}>
+              Have specific requirements? Send us a detailed query and our team will get back to you with a tailored proposal.
+            </p>
+          </div>
+
+          <form 
+            action="https://formspree.io/f/your-form-id" 
+            method="POST"
+            className="query-form"
+            style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}
+          >
+            <div className="grid-2" style={{ gap: '1.5rem', marginTop: 0 }}>
+              <div className="form-group" style={{ marginBottom: 0 }}>
+                <label className="form-label">Full Name</label>
+                <input type="text" name="name" className="form-input" placeholder="John Doe" required />
+              </div>
+              <div className="form-group" style={{ marginBottom: 0 }}>
+                <label className="form-label">Email Address</label>
+                <input type="email" name="email" className="form-input" placeholder="john@company.com" required />
+              </div>
+            </div>
+
+            <div className="grid-2" style={{ gap: '1.5rem', marginTop: 0 }}>
+              <div className="form-group" style={{ marginBottom: 0 }}>
+                <label className="form-label">Company Name</label>
+                <input type="text" name="company" className="form-input" placeholder="Acme Corp" required />
+              </div>
+              <div className="form-group" style={{ marginBottom: 0 }}>
+                <label className="form-label">Estimated Budget</label>
+                <select name="budget" className="form-input" required style={{ appearance: 'none', backgroundColor: '#fff' }}>
+                  <option value="" disabled selected>Select Budget Range</option>
+                  <option value="Under ₹5L">Under ₹5 Lakhs</option>
+                  <option value="₹5L - ₹20L">₹5L - ₹20 Lakhs</option>
+                  <option value="₹20L+">₹20 Lakhs+</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="form-group" style={{ marginBottom: 0 }}>
+              <label className="form-label">Project Details & Requirements</label>
+              <textarea 
+                name="message" 
+                className="form-input" 
+                placeholder="Tell us about your current challenges, goals, and timeline..." 
+                rows={6}
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" className="cta-button primary-cta" style={{ alignSelf: 'center', minWidth: '250px', marginTop: '1rem' }}>
+              Submit Query
+            </button>
+          </form>
         </GlassSurface>
       </div>
     </motion.div>
