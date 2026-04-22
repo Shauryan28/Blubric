@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import GlassSurface from '../components/GlassSurface';
+import AnimatedCounter from '../components/AnimatedCounter';
 
 import { Target, Activity, Zap, ShieldCheck, Search, Map, FileText, Settings, Users } from 'lucide-react';
 import './pages.css';
@@ -46,6 +47,41 @@ export default function Home() {
           <button className="cta-button primary-cta">Book a Consultation</button>
           <button className="secondary-cta">Get Diagnostic Audit</button>
         </motion.div>
+      </section>
+
+      <section className="impact-section">
+        <div className="impact-container">
+          <motion.div 
+            className="impact-card"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
+            <h3 className="impact-number"><AnimatedCounter to={250} suffix="+" /></h3>
+            <p className="impact-label">Companies Scaled</p>
+          </motion.div>
+          <motion.div 
+            className="impact-card"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <h3 className="impact-number"><AnimatedCounter to={35} suffix="%" /></h3>
+            <p className="impact-label">Average Profit Growth</p>
+          </motion.div>
+          <motion.div 
+            className="impact-card"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <h3 className="impact-number"><AnimatedCounter to={50} suffix="M+" /></h3>
+            <p className="impact-label">In Generated Revenue</p>
+          </motion.div>
+        </div>
       </section>
 
       <section className="section-container">
