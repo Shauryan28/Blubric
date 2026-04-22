@@ -100,8 +100,8 @@ export default function Home() {
                   <div className="timeline-icon-wrap">
                     {step.icon}
                   </div>
-                  <h3 className="glass-card-title" style={{ fontSize: '1.4rem', marginBottom: '0.8rem', color: '#fff', fontWeight: 700 }}>{step.title}</h3>
-                  <p className="glass-card-text" style={{ fontSize: '1rem', lineHeight: 1.6, color: '#c9d2db' }}>{step.description}</p>
+                  <h3 className="glass-card-title" style={{ fontSize: '1.4rem', marginBottom: '0.8rem', fontWeight: 700 }}>{step.title}</h3>
+                  <p className="glass-card-text" style={{ fontSize: '1rem', lineHeight: 1.6 }}>{step.description}</p>
                 </div>
               </div>
             </motion.div>
