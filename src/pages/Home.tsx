@@ -62,7 +62,7 @@ export default function Home() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 1.6, duration: 0.8 }}
         >
-          <button className="cta-button primary-cta">Book a Consultation</button>
+          <a href="https://calendly.com/i9409285178/30min" target="_blank" rel="noopener noreferrer" className="cta-button primary-cta" style={{ display: 'inline-block', textDecoration: 'none' }}>Book a Consultation</a>
           <button className="secondary-cta">Get Diagnostic Audit</button>
         </motion.div>
       </section>
