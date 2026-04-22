@@ -1,62 +1,42 @@
-import { useRef, useEffect, type ReactNode } from 'react';
+import { useRef } from 'react';
+import type { MouseEvent, ReactNode } from 'react';
 import './BorderGlow.css';
 
 interface BorderGlowProps {
   children: ReactNode;
   glowColor?: string;
-  glowSize?: number;
-  borderRadius?: string;
   className?: string;
 }
 
-export default function BorderGlow({
-  children,
-  glowColor = '#2563eb',
-  glowSize = 120,
-  borderRadius = '20px',
-  className = '',
-}: BorderGlowProps) {
+export default function BorderGlow({ children, glowColor = '#2563eb', className = '' }: BorderGlowProps) {
   const cardRef = useRef<HTMLDivElement>(null);
-  const glowRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     const card = cardRef.current;
-    const glow = glowRef.current;
-    if (!card || !glow) return;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+    card.style.setProperty('--glow-color', glowColor);
+  };
 
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      glow.style.setProperty('--glow-x', `${x}px`);
-      glow.style.setProperty('--glow-y', `${y}px`);
-      glow.style.opacity = '1';
-    };
-
-    const handleMouseLeave = () => {
-      glow.style.opacity = '0';
-    };
-
-    card.addEventListener('mousemove', handleMouseMove);
-    card.addEventListener('mouseleave', handleMouseLeave);
-    return () => {
-      card.removeEventListener('mousemove', handleMouseMove);
-      card.removeEventListener('mouseleave', handleMouseLeave);
-    };
-  }, []);
+  const handleMouseLeave = () => {
+    const card = cardRef.current;
+    if (!card) return;
+    card.style.setProperty('--mouse-x', `50%`);
+    card.style.setProperty('--mouse-y', `50%`);
+  };
 
   return (
     <div
       ref={cardRef}
       className={`border-glow-card ${className}`}
-      style={{
-        '--glow-color': glowColor,
-        '--glow-size': `${glowSize}px`,
-        '--card-radius': borderRadius,
-      } as React.CSSProperties}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
     >
-      <div ref={glowRef} className="border-glow-spotlight" />
-      <div className="border-glow-content">
+      <div className="border-glow-inner">
         {children}
       </div>
     </div>

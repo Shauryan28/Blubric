@@ -2,8 +2,7 @@ import { motion } from 'framer-motion';
 import GlassSurface from '../components/GlassSurface';
 import AnimatedCounter from '../components/AnimatedCounter';
 import BorderGlow from '../components/BorderGlow';
-
-import { Target, Activity, Zap, ShieldCheck, Search, Map, FileText, Settings, Users } from 'lucide-react';
+import { Target, Activity, Zap, ShieldCheck, Search, Map, FileText, Settings, Users, TrendingUp, DollarSign, Award } from 'lucide-react';
 import './pages.css';
 
 const journeySteps = [
@@ -52,53 +51,83 @@ export default function Home() {
 
       <section className="impact-section">
         <div className="impact-header">
-          <span className="section-subtitle">Proven Results</span>
-          <h2 className="section-title">The Numbers Don't Lie</h2>
+          <motion.span
+            className="section-subtitle"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            Proven Results
+          </motion.span>
+          <motion.h2
+            className="section-title"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            The Numbers Speak for Themselves
+          </motion.h2>
         </div>
         <div className="impact-container">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
+            style={{ flex: 1, minWidth: '260px', display: 'flex' }}
           >
-            <BorderGlow glowColor="#2563eb" borderRadius="20px" className="impact-glow-card">
-              <div className="impact-card">
-                <div className="impact-icon">🏢</div>
-                <h3 className="impact-number"><AnimatedCounter to={250} suffix="+" /></h3>
-                <p className="impact-label">Companies Scaled</p>
-                <p className="impact-desc">Indian businesses transformed across sectors — from D2C brands to B2B enterprises.</p>
-              </div>
+            <BorderGlow glowColor="#2563eb">
+              <div className="impact-icon-wrap"><Users size={32} strokeWidth={1.5} color="#2563eb" /></div>
+              <h3 className="impact-number"><AnimatedCounter to={250} suffix="+" /></h3>
+              <p className="impact-label">Companies Scaled</p>
+              <p className="impact-desc">Across sectors — from early-stage startups to established family businesses across India.</p>
             </BorderGlow>
           </motion.div>
+
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            style={{ flex: 1, minWidth: '260px', display: 'flex' }}
           >
-            <BorderGlow glowColor="#10b981" borderRadius="20px" className="impact-glow-card">
-              <div className="impact-card">
-                <div className="impact-icon">📈</div>
-                <h3 className="impact-number"><AnimatedCounter to={35} suffix="%" /></h3>
-                <p className="impact-label">Average Profit Growth</p>
-                <p className="impact-desc">Median profit increase achieved within 6 months of our strategic engagement.</p>
-              </div>
+            <BorderGlow glowColor="#16a34a">
+              <div className="impact-icon-wrap"><TrendingUp size={32} strokeWidth={1.5} color="#16a34a" /></div>
+              <h3 className="impact-number" style={{ color: '#16a34a' }}><AnimatedCounter to={35} suffix="%" /></h3>
+              <p className="impact-label">Average Profit Growth</p>
+              <p className="impact-desc">Clients see measurable profit improvement within 90 days of our engagement.</p>
             </BorderGlow>
           </motion.div>
+
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            style={{ flex: 1, minWidth: '260px', display: 'flex' }}
           >
-            <BorderGlow glowColor="#f59e0b" borderRadius="20px" className="impact-glow-card">
-              <div className="impact-card">
-                <div className="impact-icon">💰</div>
-                <h3 className="impact-number">₹<AnimatedCounter to={50} suffix="Cr+" /></h3>
-                <p className="impact-label">Revenue Generated</p>
-                <p className="impact-desc">Cumulative additional revenue unlocked for our clients through strategy execution.</p>
-              </div>
+            <BorderGlow glowColor="#9333ea">
+              <div className="impact-icon-wrap"><DollarSign size={32} strokeWidth={1.5} color="#9333ea" /></div>
+              <h3 className="impact-number" style={{ color: '#9333ea' }}>₹<AnimatedCounter to={50} suffix="Cr+" /></h3>
+              <p className="impact-label">Revenue Generated</p>
+              <p className="impact-desc">Direct, attributable revenue unlocked for our clients through strategic execution.</p>
+            </BorderGlow>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, delay: 0.45 }}
+            style={{ flex: 1, minWidth: '260px', display: 'flex' }}
+          >
+            <BorderGlow glowColor="#ea580c">
+              <div className="impact-icon-wrap"><Award size={32} strokeWidth={1.5} color="#ea580c" /></div>
+              <h3 className="impact-number" style={{ color: '#ea580c' }}><AnimatedCounter to={98} suffix="%" /></h3>
+              <p className="impact-label">Client Retention Rate</p>
+              <p className="impact-desc">Once clients see results, they stay. Our long-term advisory model builds lasting trust.</p>
             </BorderGlow>
           </motion.div>
         </div>

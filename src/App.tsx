@@ -2,7 +2,6 @@ import { Routes, Route } from 'react-router-dom';
 import { SilkBackground } from './components/SilkBackground';
 import PillNav from './components/PillNav';
 import ScrollToTop from './components/ScrollToTop';
-import MetallicText from './components/MetallicText';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -20,7 +19,7 @@ function App() {
     <>
       <ScrollToTop />
       <SilkBackground />
-      <PillNav items={navItems} customLogo={<MetallicText text="BLUBRIC." fontSize={20} fontWeight="800" />} />
+      <PillNav items={navItems} customLogo={<span style={{fontWeight:800, fontSize:'1.2rem', color:'#111827', letterSpacing: '-0.5px'}}>BLUBRIC.</span>} />
       <main className="page-container">
         <Routes>
           <Route path="/" element={<Home />} />

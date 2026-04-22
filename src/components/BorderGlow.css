@@ -1,58 +1,61 @@
 .border-glow-card {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  --glow-color: #2563eb;
+  --border-radius: 24px;
+
   position: relative;
-  border-radius: var(--card-radius, 20px);
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 0, 0, 0.07);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-  overflow: hidden;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  cursor: default;
+  border-radius: var(--border-radius);
+  padding: 2px;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1;
+  min-width: 280px;
 }
 
-.border-glow-card:hover {
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
-  transform: translateY(-4px);
-}
-
-.border-glow-spotlight {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  border-radius: inherit;
-  background: radial-gradient(
-    var(--glow-size, 120px) circle at var(--glow-x, 50%) var(--glow-y, 50%),
-    rgba(var(--glow-color-rgb, 37, 99, 235), 0.12) 0%,
-    transparent 70%
-  );
-  /* Also animate the border */
-  z-index: 0;
-}
-
-/* Glowing border ring using pseudo-element */
+/* The animated glowing border using conic-gradient from mouse position */
 .border-glow-card::before {
   content: '';
   position: absolute;
-  inset: -1px;
-  border-radius: calc(var(--card-radius, 20px) + 1px);
+  inset: 0;
+  border-radius: var(--border-radius);
   background: radial-gradient(
-    var(--glow-size, 120px) circle at var(--glow-x, 50%) var(--glow-y, 50%),
-    var(--glow-color, #2563eb) 0%,
+    200px circle at var(--mouse-x) var(--mouse-y),
+    var(--glow-color),
     transparent 70%
   );
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
   z-index: 0;
 }
 
 .border-glow-card:hover::before {
-  opacity: 0.35;
+  opacity: 1;
 }
 
-.border-glow-content {
+.border-glow-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(37, 99, 235, 0.12);
+}
+
+/* Inner content sits on top of the glow */
+.border-glow-inner {
   position: relative;
   z-index: 1;
+  border-radius: calc(var(--border-radius) - 2px);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: border-color 0.3s ease;
+}
+
+.border-glow-card:hover .border-glow-inner {
+  border-color: rgba(37, 99, 235, 0.15);
 }

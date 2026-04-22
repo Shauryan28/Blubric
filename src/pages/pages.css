@@ -217,49 +217,36 @@ textarea.form-input {
 
 /* Impact / Testimonial Counter Section */
 .impact-section {
-  padding: 5rem 1rem;
-  background: var(--bg-secondary);
-  border-top: 1px solid rgba(0,0,0,0.05);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  padding: 6rem 2rem;
   position: relative;
   z-index: 2;
 }
 
 .impact-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 .impact-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: stretch;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
   gap: 1.5rem;
   flex-wrap: wrap;
 }
 
-.impact-glow-card {
-  flex: 1;
-  min-width: 260px;
-  height: 100%;
-}
-
-.impact-card {
+.impact-icon-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: rgba(0, 0, 0, 0.04);
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
-  padding: 2.5rem 2rem;
-  height: 100%;
-  box-sizing: border-box;
-}
-
-.impact-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1.25rem;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .impact-number {
@@ -273,19 +260,19 @@ textarea.form-input {
 }
 
 .impact-label {
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: #111827;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 1rem;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.75rem;
 }
 
 .impact-desc {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
+  font-size: 0.9rem;
   line-height: 1.6;
-  max-width: 260px;
+  color: #6b7280;
+  max-width: 220px;
 }
 
 .timeline-line {
