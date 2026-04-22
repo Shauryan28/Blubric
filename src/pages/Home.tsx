@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import GlassSurface from '../components/GlassSurface';
 import AnimatedCounter from '../components/AnimatedCounter';
 import BorderGlow from '../components/BorderGlow';
-import { Target, Activity, Zap, ShieldCheck, Search, Map, FileText, Settings, Users, TrendingUp, DollarSign, Award } from 'lucide-react';
+import { Target, Activity, Zap, ShieldCheck, Search, Map, FileText, Settings, Users, TrendingUp, IndianRupee, Award } from 'lucide-react';
 import './pages.css';
 
 const journeySteps = [
@@ -109,7 +109,7 @@ export default function Home() {
             style={{ flex: 1, minWidth: '260px', display: 'flex' }}
           >
             <BorderGlow glowColor="#9333ea">
-              <div className="impact-icon-wrap"><DollarSign size={32} strokeWidth={1.5} color="#9333ea" /></div>
+              <div className="impact-icon-wrap"><IndianRupee size={32} strokeWidth={1.5} color="#9333ea" /></div>
               <h3 className="impact-number" style={{ color: '#9333ea' }}>₹<AnimatedCounter to={50} suffix="Cr+" /></h3>
               <p className="impact-label">Revenue Generated</p>
               <p className="impact-desc">Direct, attributable revenue unlocked for our clients through strategic execution.</p>
