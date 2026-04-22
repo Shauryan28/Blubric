@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import GlassSurface from '../components/GlassSurface';
 import AnimatedCounter from '../components/AnimatedCounter';
 import BorderGlow from '../components/BorderGlow';
-import TrueFocus from '../components/TrueFocus';
 import { Target, Activity, Zap, ShieldCheck, Search, Map, FileText, Settings, Users, TrendingUp, IndianRupee, Award } from 'lucide-react';
 import './pages.css';
 
@@ -23,27 +22,37 @@ export default function Home() {
       transition={{ duration: 0.5 }}
     >
       <section className="hero-section">
-        <motion.h1 
-          className="hero-title"
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-        >
-          <TrueFocus 
-            sentence="Clarity. Strategy. Execution."
-            manualMode={false}
-            blurAmount={4}
-            borderColor="#2563eb"
-            glowColor="rgba(37, 99, 235, 0.4)"
-            animationDuration={1.2}
-            pauseBetweenAnimations={0.5}
-          />
-        </motion.h1>
+        <h1 className="hero-title">
+          <motion.span 
+            initial={{ opacity: 0, filter: 'blur(12px)', y: 20 }}
+            animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
+            style={{ display: 'inline-block', marginRight: '0.25em' }}
+          >
+            Clarity.
+          </motion.span>
+          <motion.span 
+            initial={{ opacity: 0, filter: 'blur(12px)', y: 20 }}
+            animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+            transition={{ delay: 0.7, duration: 0.8, ease: "easeOut" }}
+            style={{ display: 'inline-block', marginRight: '0.25em' }}
+          >
+            Strategy.
+          </motion.span>
+          <motion.span 
+            initial={{ opacity: 0, filter: 'blur(12px)', y: 20 }}
+            animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+            transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
+            style={{ display: 'inline-block' }}
+          >
+            Execution.
+          </motion.span>
+        </h1>
         <motion.p 
           className="hero-subtitle"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
+          transition={{ delay: 1.6, duration: 0.8 }}
         >
           We are a lean, modern advisory practice helping Indian businesses overcome growth plateaus with execution-focused direction.
         </motion.p>
@@ -51,7 +60,7 @@ export default function Home() {
           className="hero-cta"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
+          transition={{ delay: 1.8, duration: 0.8 }}
         >
           <button className="cta-button primary-cta">Book a Consultation</button>
           <button className="secondary-cta">Get Diagnostic Audit</button>
