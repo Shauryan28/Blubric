@@ -34,11 +34,11 @@
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  background: rgba(38, 40, 50, 0.75) !important;
-  backdrop-filter: blur(20px) saturate(1.4) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(1.4) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255,255,255,0.06);
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(32px) saturate(2) brightness(1.05) !important;
+  -webkit-backdrop-filter: blur(32px) saturate(2) brightness(1.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
   padding: 5px 5px 5px 18px;
   border-radius: 999px;
   gap: 14px;
@@ -57,10 +57,10 @@
   display: flex;
   align-items: center;
   height: var(--nav-h);
-  background: rgba(20, 21, 28, 0.55);
+  background: rgba(240, 242, 245, 0.7);
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .pill-logo {
@@ -103,7 +103,7 @@
   height: 100%;
   padding: 0 var(--pill-pad-x);
   background: transparent;
-  color: rgba(200, 208, 220, 0.85);
+  color: #374151;
   text-decoration: none;
   border-radius: 9999px;
   box-sizing: border-box;
@@ -149,8 +149,8 @@
   position: absolute;
   left: 0;
   top: 0;
-  color: #ffffff;
-  font-weight: 600;
+  color: #111827;
+  font-weight: 700;
   z-index: 3;
   display: inline-block;
   will-change: transform, opacity;
@@ -212,7 +212,7 @@
 .hamburger-line {
   width: 18px;
   height: 2px;
-  background: rgba(200, 208, 220, 0.9);
+  background: #374151;
   border-radius: 1px;
   transition: all 0.01s ease;
   transform-origin: center;
@@ -223,10 +223,10 @@
   top: 4.5em;
   left: 0;
   right: 0;
-  background: rgba(38, 40, 50, 0.92);
-  backdrop-filter: blur(24px);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(32px);
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.9);
   z-index: 998;
   opacity: 0;
   transform: translateY(10px);
@@ -235,7 +235,7 @@
   padding: 10px;
   transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
   pointer-events: none;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
 }
 
 .mobile-menu-popover.is-open {
@@ -257,7 +257,7 @@
 .mobile-menu-popover .mobile-menu-link {
   display: block;
   padding: 16px;
-  color: rgba(200, 208, 220, 0.9);
+  color: #374151;
   background-color: transparent;
   text-decoration: none;
   font-size: 16px;
