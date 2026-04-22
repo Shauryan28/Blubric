@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import GlassSurface from '../components/GlassSurface';
 import { Search, Map, BarChart, Users, BookOpen, FileText } from 'lucide-react';
 import './pages.css';
@@ -71,7 +72,7 @@ export default function Services() {
 
       <section className="section-container" style={{ textAlign: 'center', marginTop: '2rem' }}>
         <h2 className="section-title" style={{ marginBottom: '2rem' }}>Ready to unlock your potential?</h2>
-        <button className="cta-button primary-cta">Start Your Audit Today</button>
+        <Link to="/contact" className="cta-button primary-cta" style={{ textDecoration: 'none' }}>Start Your Audit Today</Link>
       </section>
     </motion.div>
   );

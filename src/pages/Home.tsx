@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import GlassSurface from '../components/GlassSurface';
 import AnimatedCounter from '../components/AnimatedCounter';
 import BorderGlow from '../components/BorderGlow';
@@ -63,7 +64,7 @@ export default function Home() {
           transition={{ delay: 1.6, duration: 0.8 }}
         >
           <a href="https://calendly.com/i9409285178/30min" target="_blank" rel="noopener noreferrer" className="cta-button primary-cta" style={{ display: 'inline-block', textDecoration: 'none' }}>Book a Consultation</a>
-          <button className="secondary-cta">Get Diagnostic Audit</button>
+          <Link to="/contact" className="secondary-cta" style={{ textDecoration: 'none' }}>Get Diagnostic Audit</Link>
         </motion.div>
       </section>
 

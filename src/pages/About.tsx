@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import GlassSurface from '../components/GlassSurface';
 import './pages.css';
 
@@ -45,7 +46,7 @@ export default function About() {
           <p className="hero-subtitle" style={{ margin: '0 auto 3rem' }}>
             We work with Indian business owners facing growth plateaus, early-stage founders seeking direction, and established businesses aiming to scale in Retail, F&B, Consumer Brands, Services, Education, and Manufacturing.
           </p>
-          <button className="cta-button primary-cta">See If We're A Fit</button>
+          <Link to="/contact" className="cta-button primary-cta" style={{ textDecoration: 'none' }}>See If We're A Fit</Link>
         </GlassSurface>
       </section>
     </motion.div>
