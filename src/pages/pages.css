@@ -241,12 +241,12 @@ textarea.form-input {
   width: 64px;
   height: 64px;
   border-radius: 18px;
-  background: rgba(0, 0, 0, 0.04);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
   border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05), inset 0 2px 4px rgba(255,255,255,0.5);
 }
 
 .impact-number {

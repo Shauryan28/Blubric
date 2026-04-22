@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import GlassSurface from '../components/GlassSurface';
 import AnimatedCounter from '../components/AnimatedCounter';
 import BorderGlow from '../components/BorderGlow';
-import LogoTicker from '../components/LogoTicker';
 import { Target, Activity, Zap, ShieldCheck, Search, Map, FileText, Settings, Users, TrendingUp, DollarSign, Award } from 'lucide-react';
 import './pages.css';
 
@@ -80,7 +79,9 @@ export default function Home() {
             style={{ flex: 1, minWidth: '260px', display: 'flex' }}
           >
             <BorderGlow glowColor="#2563eb">
-              <div className="impact-icon-wrap"><Users size={32} strokeWidth={1.5} color="#2563eb" /></div>
+              <div className="impact-icon-wrap" style={{ background: 'linear-gradient(135deg, rgba(37,99,235,0.1) 0%, rgba(37,99,235,0.02) 100%)', borderColor: 'rgba(37,99,235,0.2)' }}>
+                <Users size={32} strokeWidth={1.5} color="#2563eb" />
+              </div>
               <h3 className="impact-number"><AnimatedCounter to={250} suffix="+" /></h3>
               <p className="impact-label">Companies Scaled</p>
               <p className="impact-desc">Across sectors — from early-stage startups to established family businesses across India.</p>
@@ -95,7 +96,9 @@ export default function Home() {
             style={{ flex: 1, minWidth: '260px', display: 'flex' }}
           >
             <BorderGlow glowColor="#16a34a">
-              <div className="impact-icon-wrap"><TrendingUp size={32} strokeWidth={1.5} color="#16a34a" /></div>
+              <div className="impact-icon-wrap" style={{ background: 'linear-gradient(135deg, rgba(22,163,74,0.1) 0%, rgba(22,163,74,0.02) 100%)', borderColor: 'rgba(22,163,74,0.2)' }}>
+                <TrendingUp size={32} strokeWidth={1.5} color="#16a34a" />
+              </div>
               <h3 className="impact-number" style={{ color: '#16a34a' }}><AnimatedCounter to={35} suffix="%" /></h3>
               <p className="impact-label">Average Profit Growth</p>
               <p className="impact-desc">Clients see measurable profit improvement within 90 days of our engagement.</p>
@@ -110,7 +113,9 @@ export default function Home() {
             style={{ flex: 1, minWidth: '260px', display: 'flex' }}
           >
             <BorderGlow glowColor="#9333ea">
-              <div className="impact-icon-wrap"><DollarSign size={32} strokeWidth={1.5} color="#9333ea" /></div>
+              <div className="impact-icon-wrap" style={{ background: 'linear-gradient(135deg, rgba(147,51,234,0.1) 0%, rgba(147,51,234,0.02) 100%)', borderColor: 'rgba(147,51,234,0.2)' }}>
+                <DollarSign size={32} strokeWidth={1.5} color="#9333ea" />
+              </div>
               <h3 className="impact-number" style={{ color: '#9333ea' }}>₹<AnimatedCounter to={50} suffix="Cr+" /></h3>
               <p className="impact-label">Revenue Generated</p>
               <p className="impact-desc">Direct, attributable revenue unlocked for our clients through strategic execution.</p>
@@ -125,7 +130,9 @@ export default function Home() {
             style={{ flex: 1, minWidth: '260px', display: 'flex' }}
           >
             <BorderGlow glowColor="#ea580c">
-              <div className="impact-icon-wrap"><Award size={32} strokeWidth={1.5} color="#ea580c" /></div>
+              <div className="impact-icon-wrap" style={{ background: 'linear-gradient(135deg, rgba(234,88,12,0.1) 0%, rgba(234,88,12,0.02) 100%)', borderColor: 'rgba(234,88,12,0.2)' }}>
+                <Award size={32} strokeWidth={1.5} color="#ea580c" />
+              </div>
               <h3 className="impact-number" style={{ color: '#ea580c' }}><AnimatedCounter to={98} suffix="%" /></h3>
               <p className="impact-label">Client Retention Rate</p>
               <p className="impact-desc">Once clients see results, they stay. Our long-term advisory model builds lasting trust.</p>
@@ -133,8 +140,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
-      <LogoTicker />
 
       <section className="section-container">
         <div className="section-header">
