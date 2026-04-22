@@ -19,7 +19,7 @@ function App() {
     <>
       <ScrollToTop />
       <SilkBackground />
-      <PillNav items={navItems} customLogo={<span style={{fontWeight:800, fontSize:'1.2rem', color:'#fff', letterSpacing: '-0.5px'}}>BLUBRIC.</span>} />
+      <PillNav items={navItems} customLogo={<span style={{fontWeight:800, fontSize:'1.2rem', color:'#111827', letterSpacing: '-0.5px'}}>BLUBRIC.</span>} />
       <main className="page-container">
         <Routes>
           <Route path="/" element={<Home />} />
