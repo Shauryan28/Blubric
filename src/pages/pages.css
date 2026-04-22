@@ -238,36 +238,15 @@ textarea.form-input {
 }
 
 .impact-icon-wrap {
-  width: 72px;
-  height: 72px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.2) 100%);
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.05),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.5),
-    inset 0 2px 4px rgba(255, 255, 255, 0.8);
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: rgba(0, 0, 0, 0.04);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.impact-icon-wrap::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--icon-glow-color, rgba(0,0,0,0.1));
-  filter: blur(20px);
-  opacity: 0.4;
-  z-index: 0;
-}
-
-.impact-icon-wrap > svg {
-  position: relative;
-  z-index: 1;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .impact-number {

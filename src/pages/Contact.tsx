@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import GlassSurface from '../components/GlassSurface';
-import { useEffect } from 'react';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Mail, MapPin, Phone, Send } from 'lucide-react';
 import './pages.css';
 
 const CalendlyEmbed = () => {
@@ -20,13 +20,26 @@ const CalendlyEmbed = () => {
   return (
     <div 
       className="calendly-inline-widget" 
-      data-url="https://calendly.com/i9409285178/30min" 
+      data-url="https://calendly.com/i9409285178/30min?hide_gdpr_banner=1" 
       style={{ minWidth: '320px', height: '700px', width: '100%' }} 
     />
   );
 };
 
 export default function Contact() {
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormStatus('submitting');
+    // Simulate API call
+    setTimeout(() => {
+      setFormStatus('success');
+      // Reset after 3 seconds
+      setTimeout(() => setFormStatus('idle'), 3000);
+    }, 1500);
+  };
+
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -41,113 +54,89 @@ export default function Contact() {
       </div>
 
       <div className="grid-2" style={{ marginTop: '4rem', alignItems: 'stretch' }}>
-        <GlassSurface backgroundOpacity={0.02} style={{ padding: '3rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-          <h2 className="glass-card-title" style={{ marginBottom: '2rem', fontSize: '1.8rem' }}>Direct Contact</h2>
+        
+        {/* Left Column: Contact Info & Form */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <div className="glass-card-icon" style={{ width: '48px', height: '48px', borderRadius: '50%', flexShrink: 0, marginBottom: 0 }}>
-                <Mail size={24} />
+          <GlassSurface backgroundOpacity={0.02} style={{ padding: '2.5rem' }}>
+            <h2 className="glass-card-title" style={{ marginBottom: '2rem', fontSize: '1.5rem' }}>Direct Contact</h2>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div className="glass-card-icon" style={{ width: '40px', height: '40px', borderRadius: '50%', flexShrink: 0, marginBottom: 0 }}>
+                  <Mail size={20} />
+                </div>
+                <div>
+                  <p style={{ fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.1rem', fontSize: '0.9rem' }}>Email Us</p>
+                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>contact@yourcompany.com</p>
+                </div>
               </div>
-              <div>
-                <p style={{ fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.2rem' }}>Email Us</p>
-                <p style={{ color: 'var(--text-secondary)' }}>hello@blubric.com</p>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div className="glass-card-icon" style={{ width: '40px', height: '40px', borderRadius: '50%', flexShrink: 0, marginBottom: 0 }}>
+                  <Phone size={20} />
+                </div>
+                <div>
+                  <p style={{ fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.1rem', fontSize: '0.9rem' }}>Call Us</p>
+                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>+91 98765 43210</p>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div className="glass-card-icon" style={{ width: '40px', height: '40px', borderRadius: '50%', flexShrink: 0, marginBottom: 0 }}>
+                  <MapPin size={20} />
+                </div>
+                <div>
+                  <p style={{ fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.1rem', fontSize: '0.9rem' }}>Location</p>
+                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>Mumbai, India</p>
+                </div>
               </div>
             </div>
+          </GlassSurface>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <div className="glass-card-icon" style={{ width: '48px', height: '48px', borderRadius: '50%', flexShrink: 0, marginBottom: 0 }}>
-                <Phone size={24} />
+          <GlassSurface backgroundOpacity={0.02} style={{ padding: '2.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
+            <h2 className="glass-card-title" style={{ marginBottom: '0.5rem', fontSize: '1.5rem' }}>Request a Quotation</h2>
+            <p className="glass-card-text" style={{ marginBottom: '2rem', fontSize: '0.9rem' }}>Have a specific query? Drop us a message and our team will get back to you within 24 hours.</p>
+            
+            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem', flex: 1 }}>
+              <div className="form-group" style={{ marginBottom: 0 }}>
+                <input type="text" className="form-input" placeholder="Your Name" required />
               </div>
-              <div>
-                <p style={{ fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.2rem' }}>Call Us</p>
-                <p style={{ color: 'var(--text-secondary)' }}>+91 98765 43210</p>
+              <div className="form-group" style={{ marginBottom: 0 }}>
+                <input type="email" className="form-input" placeholder="Work Email" required />
               </div>
-            </div>
+              <div className="form-group" style={{ marginBottom: 0, flex: 1 }}>
+                <textarea className="form-input" placeholder="How can we help you grow?" style={{ height: '100%', minHeight: '120px', resize: 'none' }} required></textarea>
+              </div>
+              <button 
+                type="submit" 
+                className="cta-button primary-cta" 
+                disabled={formStatus !== 'idle'}
+                style={{ 
+                  width: '100%', 
+                  marginTop: '1rem', 
+                  display: 'flex', 
+                  justifyContent: 'center', 
+                  alignItems: 'center', 
+                  gap: '0.5rem',
+                  opacity: formStatus === 'submitting' ? 0.7 : 1,
+                  backgroundColor: formStatus === 'success' ? '#16a34a' : undefined,
+                  borderColor: formStatus === 'success' ? '#16a34a' : undefined
+                }}
+              >
+                {formStatus === 'idle' && <><Send size={18} /> Send Message</>}
+                {formStatus === 'submitting' && 'Sending...'}
+                {formStatus === 'success' && 'Message Sent! ✓'}
+              </button>
+            </form>
+          </GlassSurface>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <div className="glass-card-icon" style={{ width: '48px', height: '48px', borderRadius: '50%', flexShrink: 0, marginBottom: 0 }}>
-                <MapPin size={24} />
-              </div>
-              <div>
-                <p style={{ fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.2rem' }}>Location</p>
-                <p style={{ color: 'var(--text-secondary)' }}>India</p>
-              </div>
-            </div>
-          </div>
-          
-          <div style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid rgba(0,0,0,0.05)' }}>
-            <h3 className="glass-card-title" style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>Book a Consultation</h3>
-            <p className="glass-card-text">
-              Select a time that works best for you on the calendar to schedule a 30-minute discovery call with our founder.
-            </p>
-          </div>
-        </GlassSurface>
+        </div>
 
+        {/* Right Column: Calendly Widget */}
         <GlassSurface backgroundOpacity={0.1} style={{ padding: '1rem', overflow: 'hidden' }}>
           <CalendlyEmbed />
         </GlassSurface>
-      </div>
 
-      {/* Working Query Form Section */}
-      <div style={{ marginTop: '4rem' }}>
-        <GlassSurface backgroundOpacity={0.03} style={{ padding: '4rem 3rem' }}>
-          <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', marginBottom: '3rem' }}>
-            <h2 className="section-title" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Request a Quotation</h2>
-            <p className="glass-card-text" style={{ fontSize: '1.1rem' }}>
-              Have specific requirements? Send us a detailed query and our team will get back to you with a tailored proposal.
-            </p>
-          </div>
-
-          <form 
-            action="https://formspree.io/f/your-form-id" 
-            method="POST"
-            className="query-form"
-            style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}
-          >
-            <div className="grid-2" style={{ gap: '1.5rem', marginTop: 0 }}>
-              <div className="form-group" style={{ marginBottom: 0 }}>
-                <label className="form-label">Full Name</label>
-                <input type="text" name="name" className="form-input" placeholder="John Doe" required />
-              </div>
-              <div className="form-group" style={{ marginBottom: 0 }}>
-                <label className="form-label">Email Address</label>
-                <input type="email" name="email" className="form-input" placeholder="john@company.com" required />
-              </div>
-            </div>
-
-            <div className="grid-2" style={{ gap: '1.5rem', marginTop: 0 }}>
-              <div className="form-group" style={{ marginBottom: 0 }}>
-                <label className="form-label">Company Name</label>
-                <input type="text" name="company" className="form-input" placeholder="Acme Corp" required />
-              </div>
-              <div className="form-group" style={{ marginBottom: 0 }}>
-                <label className="form-label">Estimated Budget</label>
-                <select name="budget" className="form-input" required style={{ appearance: 'none', backgroundColor: '#fff' }}>
-                  <option value="" disabled selected>Select Budget Range</option>
-                  <option value="Under ₹5L">Under ₹5 Lakhs</option>
-                  <option value="₹5L - ₹20L">₹5L - ₹20 Lakhs</option>
-                  <option value="₹20L+">₹20 Lakhs+</option>
-                </select>
-              </div>
-            </div>
-
-            <div className="form-group" style={{ marginBottom: 0 }}>
-              <label className="form-label">Project Details & Requirements</label>
-              <textarea 
-                name="message" 
-                className="form-input" 
-                placeholder="Tell us about your current challenges, goals, and timeline..." 
-                rows={6}
-                required
-              ></textarea>
-            </div>
-
-            <button type="submit" className="cta-button primary-cta" style={{ alignSelf: 'center', minWidth: '250px', marginTop: '1rem' }}>
-              Submit Query
-            </button>
-          </form>
-        </GlassSurface>
       </div>
     </motion.div>
   );
