@@ -19,7 +19,6 @@
     color 0.3s ease;
   outline: none;
   user-select: none;
-  color: var(--text-primary, #111827);
 }
 
 .focus-word.active {
@@ -40,7 +39,7 @@
   width: 1rem;
   height: 1rem;
   border: 3px solid var(--border-color, #fff);
-  filter: drop-shadow(0px 0px 4px var(--glow-color, rgba(255,255,255,0.6)));
+  filter: drop-shadow(0px 0px 4px var(--border-color, #fff));
   border-radius: 3px;
   transition: none;
 }

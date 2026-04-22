@@ -33,9 +33,9 @@ export default function Home() {
             sentence="Clarity. Strategy. Execution."
             manualMode={false}
             blurAmount={4}
-            borderColor="rgba(37, 99, 235, 0.8)"
+            borderColor="#2563eb"
             glowColor="rgba(37, 99, 235, 0.4)"
-            animationDuration={0.8}
+            animationDuration={1.2}
             pauseBetweenAnimations={0.5}
           />
         </motion.h1>

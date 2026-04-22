@@ -24,7 +24,7 @@ const TrueFocus = ({
   pauseBetweenAnimations = 1
 }: TrueFocusProps) => {
   const words = sentence.split(separator);
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [lastActiveIndex, setLastActiveIndex] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const wordRefs = useRef<(HTMLSpanElement | null)[]>([]);
@@ -67,8 +67,8 @@ const TrueFocus = ({
   };
 
   const handleMouseLeave = () => {
-    if (manualMode && lastActiveIndex !== null) {
-      setCurrentIndex(lastActiveIndex);
+    if (manualMode) {
+      setCurrentIndex(lastActiveIndex !== null ? lastActiveIndex : 0);
     }
   };
 
