@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import GlassSurface from '../components/GlassSurface';
 import AnimatedCounter from '../components/AnimatedCounter';
+import BorderGlow from '../components/BorderGlow';
 
 import { Target, Activity, Zap, ShieldCheck, Search, Map, FileText, Settings, Users } from 'lucide-react';
 import './pages.css';
@@ -50,36 +51,55 @@ export default function Home() {
       </section>
 
       <section className="impact-section">
+        <div className="impact-header">
+          <span className="section-subtitle">Proven Results</span>
+          <h2 className="section-title">The Numbers Don't Lie</h2>
+        </div>
         <div className="impact-container">
-          <motion.div 
-            className="impact-card"
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="impact-number"><AnimatedCounter to={250} suffix="+" /></h3>
-            <p className="impact-label">Companies Scaled</p>
+            <BorderGlow glowColor="#2563eb" borderRadius="20px" className="impact-glow-card">
+              <div className="impact-card">
+                <div className="impact-icon">🏢</div>
+                <h3 className="impact-number"><AnimatedCounter to={250} suffix="+" /></h3>
+                <p className="impact-label">Companies Scaled</p>
+                <p className="impact-desc">Indian businesses transformed across sectors — from D2C brands to B2B enterprises.</p>
+              </div>
+            </BorderGlow>
           </motion.div>
-          <motion.div 
-            className="impact-card"
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className="impact-number"><AnimatedCounter to={35} suffix="%" /></h3>
-            <p className="impact-label">Average Profit Growth</p>
+            <BorderGlow glowColor="#10b981" borderRadius="20px" className="impact-glow-card">
+              <div className="impact-card">
+                <div className="impact-icon">📈</div>
+                <h3 className="impact-number"><AnimatedCounter to={35} suffix="%" /></h3>
+                <p className="impact-label">Average Profit Growth</p>
+                <p className="impact-desc">Median profit increase achieved within 6 months of our strategic engagement.</p>
+              </div>
+            </BorderGlow>
           </motion.div>
-          <motion.div 
-            className="impact-card"
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <h3 className="impact-number"><AnimatedCounter to={50} suffix="M+" /></h3>
-            <p className="impact-label">In Generated Revenue</p>
+            <BorderGlow glowColor="#f59e0b" borderRadius="20px" className="impact-glow-card">
+              <div className="impact-card">
+                <div className="impact-icon">💰</div>
+                <h3 className="impact-number">₹<AnimatedCounter to={50} suffix="Cr+" /></h3>
+                <p className="impact-label">Revenue Generated</p>
+                <p className="impact-desc">Cumulative additional revenue unlocked for our clients through strategy execution.</p>
+              </div>
+            </BorderGlow>
           </motion.div>
         </div>
       </section>
