@@ -34,14 +34,48 @@
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.75) !important;
-  backdrop-filter: blur(24px) saturate(1.5) !important;
-  -webkit-backdrop-filter: blur(24px) saturate(1.5) !important;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  /* Frosted glass: layered backgrounds for depth */
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.72) 0%,
+      rgba(255, 255, 255, 0.52) 100%
+    ) !important;
+  backdrop-filter: blur(40px) saturate(2.5) brightness(1.05) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(2.5) brightness(1.05) !important;
+  /* Luminous top-edge highlight + soft border */
+  border-top: 1px solid rgba(255, 255, 255, 0.95);
+  border-left: 1px solid rgba(255, 255, 255, 0.8);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(200, 210, 220, 0.45);
+  /* Outer glow + depth shadow */
+  box-shadow:
+    0 2px 0 rgba(255, 255, 255, 0.9) inset,
+    0 24px 48px -8px rgba(0, 0, 0, 0.10),
+    0 4px 16px rgba(0, 0, 0, 0.06);
   padding: 6px 6px 6px 20px;
   border-radius: 999px;
   gap: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmering inner highlight pseudo-element */
+.pill-nav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border-radius: 999px 999px 0 0;
+  pointer-events: none;
+  z-index: 0;
 }
 
 @media (max-width: 768px) {
@@ -57,9 +91,13 @@
   display: flex;
   align-items: center;
   height: var(--nav-h);
-  background: rgba(0, 0, 0, 0.02);
+  background: rgba(0, 0, 0, 0.025);
   border-radius: 9999px;
-  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow:
+    inset 0 1px 3px rgba(0, 0, 0, 0.06),
+    0 1px 0 rgba(255, 255, 255, 0.8);
+  z-index: 1;
 }
 
 .pill-logo {
