@@ -189,27 +189,33 @@ export default function Home() {
           <h2 className="section-title">Services Built for Growth</h2>
         </div>
         <div className="grid-3">
-          <GlassSurface>
-            <div className="glass-card">
-              <div className="glass-card-icon"><Activity /></div>
-              <h3 className="glass-card-title">Business Audits</h3>
-              <p className="glass-card-text">Comprehensive diagnostics to identify operational gaps and hidden opportunities in your current setup.</p>
-            </div>
-          </GlassSurface>
-          <GlassSurface>
-            <div className="glass-card">
-              <div className="glass-card-icon"><Target /></div>
-              <h3 className="glass-card-title">Growth Strategy</h3>
-              <p className="glass-card-text">Data-driven market analysis and competitor intelligence to build a robust, scalable revenue roadmap.</p>
-            </div>
-          </GlassSurface>
-          <GlassSurface>
-            <div className="glass-card">
-              <div className="glass-card-icon"><ShieldCheck /></div>
-              <h3 className="glass-card-title">Advisory Support</h3>
-              <p className="glass-card-text">Ongoing mentorship and real-time execution support, ensuring strategies translate into tangible results.</p>
-            </div>
-          </GlassSurface>
+          <Link to="/services/business-audits" style={{ textDecoration: 'none', display: 'flex' }}>
+            <GlassSurface>
+              <div className="glass-card">
+                <div className="glass-card-icon"><Activity /></div>
+                <h3 className="glass-card-title">Business Audits</h3>
+                <p className="glass-card-text">Comprehensive diagnostics to identify operational gaps and hidden opportunities in your current setup.</p>
+              </div>
+            </GlassSurface>
+          </Link>
+          <Link to="/services/growth-strategy" style={{ textDecoration: 'none', display: 'flex' }}>
+            <GlassSurface>
+              <div className="glass-card">
+                <div className="glass-card-icon"><Target /></div>
+                <h3 className="glass-card-title">Growth Strategy</h3>
+                <p className="glass-card-text">Data-driven market analysis and competitor intelligence to build a robust, scalable revenue roadmap.</p>
+              </div>
+            </GlassSurface>
+          </Link>
+          <Link to="/services/advisory-support" style={{ textDecoration: 'none', display: 'flex' }}>
+            <GlassSurface>
+              <div className="glass-card">
+                <div className="glass-card-icon"><ShieldCheck /></div>
+                <h3 className="glass-card-title">Advisory Support</h3>
+                <p className="glass-card-text">Ongoing mentorship and real-time execution support, ensuring strategies translate into tangible results.</p>
+              </div>
+            </GlassSurface>
+          </Link>
         </div>
       </section>
 
