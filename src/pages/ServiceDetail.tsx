@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link, useParams, Navigate } from 'react-router-dom';
-import { Activity, Target, ShieldCheck, CheckCircle, ArrowRight } from 'lucide-react';
+import { Activity, Target, ShieldCheck, CheckCircle, ArrowRight, Search, BarChart, BookOpen, FileText } from 'lucide-react';
 import './pages.css';
 
 const serviceData: Record<string, {
@@ -86,6 +86,106 @@ const serviceData: Record<string, {
       'Faster, more confident decision-making',
       'Consistent progress tracking and accountability',
       'Tangible, measurable business impact quarter over quarter',
+    ],
+  },
+  'market-research': {
+    icon: <BarChart size={48} strokeWidth={1.5} />,
+    title: 'Market Research',
+    subtitle: 'Data-Driven Market Intelligence',
+    intro: 'Making decisions without data is gambling. Our Market Research service delivers granular, actionable intelligence about your target demographics, emerging sector trends, and untapped market segments — giving you the clarity to move with precision.',
+    color: '#0891b2',
+    features: [
+      { title: 'Demographic Profiling', desc: 'Deep analysis of your ideal customer — their behaviours, preferences, purchasing patterns, and pain points across Indian markets.' },
+      { title: 'Sector Trend Analysis', desc: 'We track macro and micro trends shaping your industry to identify windows of opportunity before your competitors do.' },
+      { title: 'Market Sizing & TAM', desc: 'Precise calculations of your Total Addressable Market to validate growth hypotheses and prioritize expansion.' },
+      { title: 'Consumer Sentiment Mapping', desc: 'Qualitative and quantitative research into how your brand is perceived relative to alternatives in the market.' },
+    ],
+    process: [
+      { step: 'Research Scoping', detail: 'Define the markets, segments, and questions you need answered through a structured brief.' },
+      { step: 'Primary & Secondary Research', detail: 'Combination of surveys, interviews, and data mining from reliable Indian market sources over 10–15 days.' },
+      { step: 'Analysis & Synthesis', detail: 'Transform raw data into strategic insights with clear visualizations and recommendations.' },
+      { step: 'Insight Presentation', detail: 'A comprehensive market intelligence report with executive summary and strategic implications.' },
+    ],
+    outcomes: [
+      'Clear understanding of your target market landscape',
+      'Data-backed validation for strategic decisions',
+      'Identified white-space opportunities in your sector',
+      'Actionable customer personas for marketing and product',
+    ],
+  },
+  'competitor-analysis': {
+    icon: <Search size={48} strokeWidth={1.5} />,
+    title: 'Competitor Analysis',
+    subtitle: 'Strategic Competitive Intelligence',
+    intro: 'You can\'t win a game you don\'t understand. Our Competitor Analysis service maps your competitive landscape with surgical precision — revealing exactly where rivals are strong, where they\'re vulnerable, and how you can position your brand to dominate.',
+    color: '#dc2626',
+    features: [
+      { title: 'Competitor Profiling', desc: 'Detailed dossiers on your top competitors — their business models, revenue streams, pricing strategies, and market positioning.' },
+      { title: 'SWOT Benchmarking', desc: 'Side-by-side comparison of strengths, weaknesses, opportunities, and threats across your competitive set.' },
+      { title: 'Pricing & Value Analysis', desc: 'Understand how competitors price their offerings and identify opportunities to create superior perceived value.' },
+      { title: 'Digital Presence Audit', desc: 'Analysis of competitor digital strategies — SEO, content, social media, and paid channels — to find gaps you can exploit.' },
+    ],
+    process: [
+      { step: 'Competitive Set Definition', detail: 'Identify and prioritize the competitors that matter most to your strategic positioning.' },
+      { step: 'Intelligence Gathering', detail: 'Systematic collection of competitor data from public sources, market signals, and industry networks.' },
+      { step: 'Comparative Analysis', detail: 'Framework-driven analysis to surface actionable competitive advantages and threats.' },
+      { step: 'Strategy Recommendations', detail: 'Specific, prioritized actions to differentiate and outperform key competitors.' },
+    ],
+    outcomes: [
+      'Complete map of your competitive landscape',
+      'Clear understanding of competitor vulnerabilities',
+      'Differentiation strategy backed by evidence',
+      'Proactive positioning to stay ahead of market shifts',
+    ],
+  },
+  'ai-workshops': {
+    icon: <BookOpen size={48} strokeWidth={1.5} />,
+    title: 'Group AI Workshops',
+    subtitle: 'Next-Gen Business Efficiency',
+    intro: 'AI isn\'t the future — it\'s the present. Our Group AI Workshops are hands-on, practical sessions designed to help your team harness AI tools for real business impact. No jargon, no theory — just actionable skills your people can use from day one.',
+    color: '#ea580c',
+    features: [
+      { title: 'Custom Curriculum Design', desc: 'Every workshop is tailored to your industry, team skill level, and specific operational challenges — no generic content.' },
+      { title: 'Hands-On Tool Training', desc: 'Practical sessions with real AI tools — from ChatGPT and automation platforms to industry-specific AI solutions.' },
+      { title: 'Workflow Automation Blueprints', desc: 'Identify and design AI-powered automation for repetitive tasks that consume your team\'s productive hours.' },
+      { title: 'AI Strategy for Leadership', desc: 'Executive-level sessions on how to think about AI investment, risk management, and competitive advantage.' },
+    ],
+    process: [
+      { step: 'Needs Assessment', detail: 'Understand your team\'s current AI literacy, tools in use, and high-impact automation opportunities.' },
+      { step: 'Curriculum Design', detail: 'Build a custom workshop agenda with hands-on exercises tailored to your business processes.' },
+      { step: 'Workshop Delivery', detail: 'Interactive, live sessions (virtual or in-person) with real-time Q&A and practical exercises.' },
+      { step: 'Follow-Up Support', detail: '30-day post-workshop support with implementation guidance and troubleshooting.' },
+    ],
+    outcomes: [
+      'Team-wide AI literacy and practical skills',
+      'Identified automation opportunities with ROI estimates',
+      'Custom AI workflow templates ready for deployment',
+      'A culture shift toward innovation and efficiency',
+    ],
+  },
+  'self-assessment': {
+    icon: <FileText size={48} strokeWidth={1.5} />,
+    title: 'Self-Assessment Reports',
+    subtitle: 'Continuous Performance Tracking',
+    intro: 'You can\'t improve what you don\'t measure. Our Self-Assessment Reports provide customized toolkits and frameworks that empower you to continuously monitor, evaluate, and optimize your business performance — long after our engagement ends.',
+    color: '#7c3aed',
+    features: [
+      { title: 'KPI Dashboard Design', desc: 'Custom-built performance dashboards tracking the metrics that actually matter for your business model and growth stage.' },
+      { title: 'Scorecard Frameworks', desc: 'Structured self-evaluation templates covering operations, finance, marketing, and team performance.' },
+      { title: 'Quarterly Review Templates', desc: 'Ready-to-use frameworks for conducting your own strategic reviews with your leadership team.' },
+      { title: 'Benchmark Libraries', desc: 'Curated industry benchmarks so you can compare your performance against best-in-class standards.' },
+    ],
+    process: [
+      { step: 'Metrics Alignment', detail: 'Identify the 15–20 KPIs that best reflect your business health and growth trajectory.' },
+      { step: 'Toolkit Development', detail: 'Build customized spreadsheets, dashboards, and evaluation templates over 7–10 days.' },
+      { step: 'Training Session', detail: 'Walk your team through the toolkit with practical examples and interpretation guidelines.' },
+      { step: 'Calibration Review', detail: 'A follow-up session after 30 days to refine metrics and improve reporting accuracy.' },
+    ],
+    outcomes: [
+      'Complete self-assessment toolkit tailored to your business',
+      'Ability to track performance independently and consistently',
+      'Early warning system for operational issues',
+      'Data-driven culture embedded in your team\'s workflow',
     ],
   },
 };
@@ -255,7 +355,7 @@ export default function ServiceDetail() {
           Book a free discovery call or request a custom quotation.
         </motion.p>
         <motion.div
-          className="hero-cta"
+          className="sd-cta-buttons"
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
