@@ -24,6 +24,15 @@ export default function Home() {
       transition={{ duration: 0.5 }}
     >
       <section className="hero-section">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="hero-badge"
+        >
+          <Award size={16} strokeWidth={2.5} className="badge-icon" />
+          <span>India's Leading Execution-Focused Advisory</span>
+        </motion.div>
         <h1 className="hero-title">
           <motion.span 
             initial={{ opacity: 0, y: 30 }}
