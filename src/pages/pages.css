@@ -630,3 +630,49 @@ textarea.form-input {
   background: #dc2626;
   cursor: default;
 }
+
+/* Infinite Ticker */
+.ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem 0 4rem;
+  background: transparent;
+  display: flex;
+  white-space: nowrap;
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.ticker-track {
+  display: flex;
+  animation: ticker 40s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 0 2rem;
+}
+
+.ticker-item span.dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: #2563eb;
+  border-radius: 50%;
+  margin-left: 4rem;
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

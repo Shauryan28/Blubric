@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import GlassSurface from '../components/GlassSurface';
@@ -67,6 +68,26 @@ export default function Home() {
           <Link to="/contact" className="secondary-cta" style={{ textDecoration: 'none' }}>Get Diagnostic Audit</Link>
         </motion.div>
       </section>
+
+      <motion.div 
+        className="ticker-wrap"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2.0, duration: 1 }}
+      >
+        <div className="ticker-track">
+          {[...Array(2)].map((_, i) => (
+            <React.Fragment key={i}>
+              <div className="ticker-item">Strategic Advisory <span className="dot"></span></div>
+              <div className="ticker-item">Financial Restructuring <span className="dot"></span></div>
+              <div className="ticker-item">Market Expansion <span className="dot"></span></div>
+              <div className="ticker-item">Process Optimization <span className="dot"></span></div>
+              <div className="ticker-item">Value Creation <span className="dot"></span></div>
+              <div className="ticker-item">Performance Audits <span className="dot"></span></div>
+            </React.Fragment>
+          ))}
+        </div>
+      </motion.div>
 
       <section className="impact-section">
         <div className="impact-header">
