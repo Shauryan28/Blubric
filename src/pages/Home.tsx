@@ -24,14 +24,15 @@ export default function Home() {
       transition={{ duration: 0.5 }}
     >
       <section className="hero-section">
-        <motion.div 
-          className="hero-badge"
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
+        <motion.div
+          className="hero-overline"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <span className="hero-badge-dot"></span>
-          Premier Advisory for Indian Enterprises
+          <span className="overline-line"></span>
+          A New Paradigm In Advisory
+          <span className="overline-line"></span>
         </motion.div>
         <h1 className="hero-title">
           <motion.span 

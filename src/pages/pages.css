@@ -1,37 +1,30 @@
 .hero-section {
-  min-height: 90vh;
+  min-height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 1.5rem;
-  padding: 8rem 1rem 4rem 1rem;
+  gap: 1.8rem;
+  padding: 10rem 1rem 4rem 1rem;
 }
 
-.hero-badge {
-  display: inline-flex;
+.hero-overline {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #2563eb;
+  text-transform: uppercase;
+  display: flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.5rem 1.25rem;
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 9999px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #475569;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  gap: 1rem;
   margin-bottom: 0.5rem;
 }
 
-.hero-badge-dot {
-  width: 6px;
-  height: 6px;
-  background-color: #2563eb;
-  border-radius: 50%;
-  box-shadow: 0 0 8px #2563eb;
+.overline-line {
+  height: 1px;
+  width: 40px;
+  background: rgba(37, 99, 235, 0.4);
 }
 
 .hero-title {
