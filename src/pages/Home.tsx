@@ -30,7 +30,7 @@ export default function Home() {
             transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
             style={{ display: 'inline-block', marginRight: '0.25em' }}
           >
-            Clarity.
+            Clarity<span style={{ color: '#2563eb' }}>.</span>
           </motion.span>
           <motion.span 
             initial={{ opacity: 0, y: 30 }}
@@ -38,7 +38,7 @@ export default function Home() {
             transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
             style={{ display: 'inline-block', marginRight: '0.25em' }}
           >
-            Strategy.
+            Strategy<span style={{ color: '#2563eb' }}>.</span>
           </motion.span>
           <motion.span 
             initial={{ opacity: 0, y: 30 }}
@@ -46,7 +46,7 @@ export default function Home() {
             transition={{ delay: 1.0, duration: 0.8, ease: "easeOut" }}
             style={{ display: 'inline-block' }}
           >
-            Execution.
+            Execution<span style={{ color: '#2563eb' }}>.</span>
           </motion.span>
         </h1>
         <motion.p 
