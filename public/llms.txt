@@ -1,26 +1,55 @@
 # BLUBRIC
 
-> Clarity. Strategy. Execution. We are a lean, modern advisory practice helping Indian businesses overcome growth plateaus with execution-focused direction.
+> Clarity. Strategy. Execution. — A lean, modern advisory practice helping Indian businesses overcome growth plateaus with execution-focused strategic direction.
 
-## Overview
+BLUBRIC is a premium business advisory firm based in Vadodara, Gujarat, India, founded by Shaurya Nandecha. We deliver diagnostic-first consulting, growth strategy planning, competitor analysis, market research, AI workshops, and ongoing advisory support — specifically tailored for the Indian business ecosystem.
 
-Most business owners are incredibly capable and hardworking, but lack strategic clarity. They often struggle with identifying blind spots, interpreting business data, and prioritizing the right actions. 
+## Core Services
 
-This is not a traditional consulting firm. It is a lean, modern advisory practice that delivers strategic clarity in a faster, more accessible, and execution-focused manner tailored specifically for Indian businesses. 
+- [Business Audits & Diagnostics](https://blubric.com/services/business-audits): Comprehensive operational evaluations to catch inefficiencies and unlock hidden revenue vectors.
+- [Growth Strategy Planning](https://blubric.com/services/growth-strategy): Data-driven, phased roadmaps to scale output, market share, and profitability.
+- [Market Research](https://blubric.com/services/market-research): Granular intelligence on demographics, sector trends, and untapped market segments.
+- [Competitor Analysis](https://blubric.com/services/competitor-analysis): Strategic competitive intelligence — SWOT benchmarking, pricing analysis, and positioning.
+- [Advisory Support](https://blubric.com/services/advisory-support): Ongoing mentorship, execution tracking, and real-time decision support as an extension of your team.
+- [Group AI Workshops](https://blubric.com/services/ai-workshops): Hands-on sessions to implement AI tools and automation for business efficiency.
+- [Self-Assessment Reports](https://blubric.com/services/self-assessment): Custom KPI dashboards and scorecard frameworks for continuous performance tracking.
 
-## Services
+## Key Differentiators
 
-- **Business Audits & Diagnostics**: In-depth evaluations of core operations to catch inefficiencies and unlock hidden revenue vectors.
-- **Growth Strategy Planning**: Concrete, multi-channel roadmaps designed not just for incremental wins, but geometric business scaling.
-- **Competitor & Market Analysis**: Advanced market mapping to identify unique vulnerabilities in your industry and capitalize on them.
-- **Interim Advisory & Support**: We stick around to ensure the vision maps perfectly to the reality on the ground during execution.
+- **Diagnostic-First Approach**: Solutions prescribed only after deep understanding of unique bottlenecks.
+- **Indian Business Aligned**: Strategies grounded in the practical realities of operating in India.
+- **Execution Focused**: Actionable steps and systems, not theoretical decks — backed by founder-led credibility.
+
+## Proven Impact
+
+- 250+ Companies Scaled across sectors — startups to established family businesses.
+- 35% Average Profit Growth within 90 days of engagement.
+- ₹50 Cr+ Revenue Generated for clients through strategic execution.
+- 98% Client Retention Rate.
+
+## Engagement Process
+
+1. Initial Diagnostic & Business Audit
+2. Market & Competitor Analysis
+3. Strategic Roadmap Creation
+4. Implementation & System Setup
+5. Ongoing Advisory & Iteration
 
 ## Important Links
 
-- [Home](https://violet-elk-397486.hostingersite.com/)
-- [About](https://violet-elk-397486.hostingersite.com/about)
-- [Services](https://violet-elk-397486.hostingersite.com/services)
-- [Contact](https://violet-elk-397486.hostingersite.com/contact)
+- [Home](https://blubric.com/)
+- [About BLUBRIC](https://blubric.com/about)
+- [All Services](https://blubric.com/services)
+- [Contact & Quotation](https://blubric.com/contact)
+- [Book a Discovery Call](https://calendly.com/i9409285178/30min)
 
-## Contact Information
-- Website: https://violet-elk-397486.hostingersite.com/contact
+## Ideal Clients
+
+Indian business owners facing growth plateaus, early-stage founders seeking direction, and established businesses aiming to scale — in Retail, F&B, Consumer Brands, Services, Education, and Manufacturing.
+
+## Contact
+
+- Website: https://blubric.com
+- Contact Page: https://blubric.com/contact
+- Discovery Call: https://calendly.com/i9409285178/30min
+- Location: Vadodara, Gujarat, India
